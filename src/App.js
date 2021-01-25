@@ -18,7 +18,8 @@ let tempLoading = [
     ingredients: [
       {
         id:1,
-        name: 'loading...'
+        name: 'loading...',
+        amount: ''
       }
     ]
   }
