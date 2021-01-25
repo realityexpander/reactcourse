@@ -3,7 +3,12 @@ import Ingredient from './Ingredient'
 
 export default function IngredientList({ ingredients }) {
   const ingredientElements = ingredients.map(ingredient => {
-    return <ingredient key={ingredient.id} {...ingredient}/>
+    return ( 
+      <>
+      <Ingredient key={ingredient.id} {...ingredient}/>
+      <br/>
+      </>
+    )
   })
 
   return (

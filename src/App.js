@@ -21,21 +21,7 @@ let tempLoading = [
         name: 'loading...'
       }
     ]
-  },
-  // {
-  //   id:2,
-  //   name: "Plain Pork",
-  //   servings: 6,
-  //   cookTime: "0:45",
-  //   instructions: "1. Put paprika on pork\n2. Put pork in oven.\n3. Eat pork."
-  // }, 
-  // {
-  //   id:3,
-  //   name: "Spicy Pork",
-  //   servings: 2,
-  //   cookTime: "3:00",
-  //   instructions: "1. Slice jalepenos.\n2. Cry in pain.\n3. Eat pork."
-  // } 
+  }
 ]
 
 function App() {
