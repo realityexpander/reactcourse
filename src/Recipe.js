@@ -1,6 +1,7 @@
 import React from 'react'
 
-export default function Recipe( {name, cookTime, servings, instructions} ) {
+export default function Recipe( props ) {
+  const {name, cookTime, servings, instructions} = props
   return (
     <div>
       <div>
