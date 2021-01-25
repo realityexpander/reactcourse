@@ -1,26 +1,14 @@
-import React, { useState } from 'react'
-import Counter from './Counter'
-import CounterHooks from './CounterHooks'
+import React from 'react'
 
-// Netlify
-//
+// Netlify.com
+// https://app.netlify.com/sites/pensive-benz-e9c005/overview
 
-export const ThemeContext = React.createContext() // like global variable
+// Github
+// https://github.com/realityexpander/reactcourse
+
 
 function App() {
-  const [theme, setTheme] = useState('green')
-  return (
-    <ThemeContext.Provider value={{backgroundColor: theme}}>
-      Counter
-      <Counter initialCount={4} />
-
-      CounterHooks
-      <CounterHooks initialCount={500} />
-      <button onClick={() => setTheme(prevTheme => {
-        return prevTheme === 'green' ? 'blue' : 'green'
-      })}>Change Theme </button>
-    </ThemeContext.Provider>
-  )
+  return null
 }
 
 export default App;
