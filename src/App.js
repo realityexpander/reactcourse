@@ -22,7 +22,7 @@ let tempLoading = [
   //   servings: 6,
   //   cookTime: "0:45",
   //   instructions: "1. Put paprika on pork\n2. Put pork in oven.\n3. Eat pork."
-  // },
+  // }, 
   // {
   //   id:3,
   //   name: "Spicy Pork",
