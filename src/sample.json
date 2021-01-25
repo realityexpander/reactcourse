@@ -4,20 +4,56 @@
     "name": "Chicken Soup",
     "servings": 3,
     "cookTime": "1:45",
-    "instructions": "1. Do first\n2. Do next\n3. Do third"
+    "instructions": "1. Do first\n2. Do next\n3. Do third",
+    "ingredients": [
+      {
+        "id":1,
+        "name": "Chicken",
+        "amount": "2 pounds"
+      },
+      {
+        "id":2,
+        "name": "Salt",
+        "amount": "a pinch"
+      }
+    ]
   },
   {
     "id":2,
     "name": "Plain Pork",
     "servings": 6,
     "cookTime": "0:45",
-    "instructions": "1. Put paprika on pork\n2. Put pork in oven.\n3. Eat pork."
+    "instructions": "1. Put paprika on pork\n2. Put pork in oven.\n3. Eat pork.",
+    "ingredients": [
+      {
+        "id":1,
+        "name": "Pork",
+        "amount": "3 pounds"
+      },
+      {
+        "id":2,
+        "name": "Paprike",
+        "amount": "1 cup"
+      }
+    ]
   },
   {
     "id":3,
     "name": "Spicy Pork",
     "servings": 2,
     "cookTime": "3:00",
-    "instructions": "1. Slice jalepenos.\n2. Cry in pain.\n3. Eat pork."
+    "instructions": "1. Slice jalepenos.\n2. Cry in pain.\n3. Eat pork.",
+    "ingredients": [
+      {
+        "id":1,
+        "name": "Pork",
+        "amount": "1 pound"
+      },
+      {
+        "id":2,
+        "name": "Barbeque sauz",
+        "amount": "half a pound"
+      }
+    ]
   }
 ]

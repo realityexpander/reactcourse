@@ -14,7 +14,13 @@ let tempLoading = [
     name: "Loading…",
     servings: "loading…",
     cookTime: "loading…",
-    instructions: "Loading…"
+    instructions: "Loading…", 
+    ingredients: [
+      {
+        id:1,
+        name: 'loading...'
+      }
+    ]
   },
   // {
   //   id:2,
