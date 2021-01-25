@@ -9,7 +9,7 @@ function App() {
       <Counter initialCount={4} />
 
       CounterHooks
-      <CounterHooks initialCount={0} />
+      <CounterHooks initialCount={500} />
     </>
   )
 }
