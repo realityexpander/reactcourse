@@ -29,7 +29,7 @@ let tempLoading = [
   //   servings: 2,
   //   cookTime: "3:00",
   //   instructions: "1. Slice jalepenos.\n2. Cry in pain.\n3. Eat pork."
-  // } 
+  // }  
 ]
 
 function App() {
