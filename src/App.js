@@ -2,10 +2,13 @@ import React, { useState } from 'react'
 import Counter from './Counter'
 import CounterHooks from './CounterHooks'
 
+// Netlify
+//
+
 export const ThemeContext = React.createContext() // like global variable
 
 function App() {
-  const [theme, setTheme] = useState('red')
+  const [theme, setTheme] = useState('green')
   return (
     <ThemeContext.Provider value={{backgroundColor: theme}}>
       Counter
@@ -14,7 +17,7 @@ function App() {
       CounterHooks
       <CounterHooks initialCount={500} />
       <button onClick={() => setTheme(prevTheme => {
-        return prevTheme === 'red' ? 'white' : 'red'
+        return prevTheme === 'green' ? 'blue' : 'green'
       })}>Change Theme </button>
     </ThemeContext.Provider>
   )
