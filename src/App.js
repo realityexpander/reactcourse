@@ -14,6 +14,12 @@ function App() {
   )
 }
 
+async function getData() {
+  const response = await fetch("http://cors-anywhere.herokuapp.com/cnn.com")
+  console.log(await response.text())
+}
+getData()
+
 const sampleRecipes = [
   {
     id:1,
