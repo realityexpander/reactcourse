@@ -15,7 +15,7 @@ function App() {
 }
 
 async function getData() {
-  const response = await fetch("http://cors-anywhere.herokuapp.com/cnn.com")
+  const response = await fetch("http://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/realityexpander/reactcourse/master/src/sample.json")
   console.log(await response.text())
 }
 getData()
@@ -41,7 +41,7 @@ const sampleRecipes = [
     servings: 2,
     cookTime: "3:00",
     instructions: "1. Slice jalepenos.\n2. Cry in pain.\n3. Eat pork."
-  },
+  }
 ]
 
 export default App;
