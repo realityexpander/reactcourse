@@ -16,7 +16,7 @@ function App() {
 
 async function getData() {
   const response = await fetch("http://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/realityexpander/reactcourse/master/src/sample.json")
-  console.log(await response.text())
+  console.log(await response.json())
 }
 getData()
 
