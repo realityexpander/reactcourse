@@ -35,7 +35,7 @@ let tempLoading = [
 function App() {
   const [data, setData] = useState({})
   const loadData = async () => {
-    const res = await fetch("http://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/realityexpander/reactcourse/master/src/sample_2.json")
+    const res = await fetch("http://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/realityexpander/reactcourse/master/src/sample.json")
     const data = await res.json()
     setData(data)
   }
