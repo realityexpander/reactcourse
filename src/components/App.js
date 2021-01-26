@@ -29,6 +29,7 @@ let tempRecipesForLoadingIndicator = [
     ]
   }
 ]
+tempRecipesForLoadingIndicator = []
 
 export const RecipeContext = React.createContext()
 
@@ -70,13 +71,24 @@ function App() {
 
   }
 
+  // initial load from server if localstorage is empty
   useEffect( () => {
-    loadRecipes()
+    const data = localStorage.getItem('none')
+    if (data==null || JSON.parse(data).length==0) {
+      loadRecipes()
+    } else {
+      setRecipes( JSON.parse(data) )
+    }
     return () => {}
   }, [])
 
+  // update local storage
+  useEffect( () => {
+    localStorage.setItem('recipes', JSON.stringify(recipes))
+  }, [recipes])
+
   return (
-    <RecipeContext.Provider data={ recipeContextValue }>
+    <RecipeContext.Provider value={ recipeContextValue }>
       <RecipeList recipes={ recipes } />
     </RecipeContext.Provider>
   )
