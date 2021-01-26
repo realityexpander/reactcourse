@@ -3,10 +3,10 @@ import {v4 as uuid} from 'uuid';
 import RecipeList from './RecipeList';
 import '../css/app.css';
 
-// Netlify.com
+// Netlify.com build/host
 // https://app.netlify.com/sites/pensive-benz-e9c005/overview
 
-// Github
+// Github repo
 // https://github.com/realityexpander/reactcourse
 
 // uuid
@@ -67,7 +67,7 @@ function App() {
   }
 
   function handleRecipeDelete(id) {
-    const newRecipes = recipes.filter( (recipe) => recipe.id != id )
+    const newRecipes = recipes.filter( (recipe) => recipe.id !== id )
     setRecipes(newRecipes)
   }
 
@@ -75,7 +75,7 @@ function App() {
   // ORDER IS IMPORTANT
   useEffect( () => {
     const recipes = localStorage.getItem(LOCAL_STORAGE_KEY)
-    if (recipes==null || JSON.parse(recipes).length==0) {
+    if (recipes===null || JSON.parse(recipes).length===0) {
       loadRecipes()
     } else {
       setRecipes( JSON.parse(recipes) )
