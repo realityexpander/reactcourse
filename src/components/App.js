@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import RecipeList from './RecipeList';
+import '../css/app.css'
 
 // Netlify.com
 // https://app.netlify.com/sites/pensive-benz-e9c005/overview
