@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import {v4 as uuid} from 'uuid';
 import RecipeList from './RecipeList';
-import '../css/app.css'
+import '../css/app.css';
 
 // Netlify.com
 // https://app.netlify.com/sites/pensive-benz-e9c005/overview
@@ -8,8 +9,11 @@ import '../css/app.css'
 // Github
 // https://github.com/realityexpander/reactcourse
 
+// uuid
+// https://www.npmjs.com/package/uuid
 
-let tempLoading = [
+
+let tempRecipesForLoadingIndicator = [
   {
     id:1,
     name: "Loading…",
@@ -27,21 +31,40 @@ let tempLoading = [
 ]
 
 function App() {
-  const [data, setData] = useState(tempLoading)
-  const loadData = async () => {
-    const res = await fetch("http://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/realityexpander/reactcourse/master/src/sample.json")
+  const [recipes, setRecipes] = useState(tempRecipesForLoadingIndicator)
+
+  const loadRecipes = async () => {
+    const res = await fetch("https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/realityexpander/reactcourse/master/src/sample.json")
     const data = await res.json()
-    setData(data)
+    setRecipes(data)
   }
 
   useEffect( () => {
-    loadData()
+    loadRecipes()
     return () => {}
   }, [])
 
   return (
-    <RecipeList recipes={ data }/>
+    <RecipeList recipes={ recipes }/>
   )
+}
+
+function handleRecipeAdd() {
+  const newRecipe = {
+    id: uuid(), 
+    name: "new","servings": 1,
+    "cookTime": "1:00",
+    "instructions": "Instr.",
+    "ingredients": [
+      {
+        "id":uuid(),
+        "name": "Pork",
+        "amount": "1 Tbs"
+      }
+    ]
+  }
+  setRecipes([...recipes, newRecipe])
+
 }
 
 export default App;
