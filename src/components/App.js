@@ -30,8 +30,15 @@ let tempRecipesForLoadingIndicator = [
   }
 ]
 
+export const RecipeContext = React.createContext()
+
 function App() {
   const [recipes, setRecipes] = useState(tempRecipesForLoadingIndicator)
+
+  const recipeContextValue = {
+    handleRecipeAdd,
+    handleRecipeDelete
+  }
 
   const loadRecipes = async () => {
     const res = await fetch("https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/realityexpander/reactcourse/master/src/sample.json")
@@ -69,11 +76,9 @@ function App() {
   }, [])
 
   return (
-    <RecipeList 
-      recipes={ recipes }
-      handleRecipeAdd={ handleRecipeAdd }
-      handleRecipeDelete={ handleRecipeDelete }
-    />
+    <RecipeContext.Provider data={ recipeContextValue }>
+      <RecipeList recipes={ recipes } />
+    </RecipeContext.Provider>
   )
 }
 
