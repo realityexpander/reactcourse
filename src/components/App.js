@@ -56,6 +56,13 @@ function App() {
     setRecipes([...recipes, newRecipe])
   }
 
+  function handleRecipeDelete(id) {
+    const newRecipes = recipes.filter( (item) => item.id != id )
+    
+    setRecipes(newRecipes)
+
+  }
+
   useEffect( () => {
     loadRecipes()
     return () => {}
@@ -64,7 +71,8 @@ function App() {
   return (
     <RecipeList 
       recipes={ recipes }
-      handleRecipeAdd={ handleRecipeAdd }  
+      handleRecipeAdd={ handleRecipeAdd }
+      handleRecipeDelete={ handleRecipeDelete }
     />
   )
 }
