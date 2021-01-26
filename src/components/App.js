@@ -27,7 +27,7 @@ let tempLoading = [
 ]
 
 function App() {
-  const [data, setData] = useState({})
+  const [data, setData] = useState(tempLoading)
   const loadData = async () => {
     const res = await fetch("http://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/realityexpander/reactcourse/master/src/sample.json")
     const data = await res.json()
@@ -39,7 +39,6 @@ function App() {
     return () => {}
   }, [])
 
-  if(JSON.stringify(data)==JSON.stringify({})) setData( tempLoading ) // must be a better way to do this
   return (
     <RecipeList recipes={ data }/>
   )
