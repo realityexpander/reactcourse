@@ -68,18 +68,17 @@ function App() {
 
   function handleRecipeDelete(id) {
     const newRecipes = recipes.filter( (recipe) => recipe.id != id )
-    
     setRecipes(newRecipes)
-
   }
 
-  // initial load from server if localstorage is empty
+  // initial load from server if localstorage is empty 
+  // ORDER IS IMPORTANT
   useEffect( () => {
-    const data = localStorage.getItem(LOCAL_STORAGE_KEY)
-    if (data==null || JSON.parse(data).length==0) {
+    const recipes = localStorage.getItem(LOCAL_STORAGE_KEY)
+    if (recipes==null || JSON.parse(recipes).length==0) {
       loadRecipes()
     } else {
-      setRecipes( JSON.parse(data) )
+      setRecipes( JSON.parse(recipes) )
     }
     return () => {}
   }, [])
