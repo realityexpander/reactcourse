@@ -29,7 +29,9 @@ let tempRecipesForLoadingIndicator = [
     ]
   }
 ]
-tempRecipesForLoadingIndicator = []
+// tempRecipesForLoadingIndicator = []
+
+const LOCAL_STORAGE_KEY = 'cookingWithReact.recipes'
 
 export const RecipeContext = React.createContext()
 
@@ -73,7 +75,7 @@ function App() {
 
   // initial load from server if localstorage is empty
   useEffect( () => {
-    const data = localStorage.getItem('none')
+    const data = localStorage.getItem(LOCAL_STORAGE_KEY)
     if (data==null || JSON.parse(data).length==0) {
       loadRecipes()
     } else {
@@ -84,7 +86,7 @@ function App() {
 
   // update local storage
   useEffect( () => {
-    localStorage.setItem('recipes', JSON.stringify(recipes))
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(recipes))
   }, [recipes])
 
   return (
