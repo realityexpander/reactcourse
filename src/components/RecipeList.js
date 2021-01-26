@@ -1,7 +1,7 @@
 import React from 'react'
 import Recipe from './Recipe'
 
-export default function RecipeList({ recipes }) {
+export default function RecipeList({ recipes, handleRecipeAdd }) {
   console.log("RecipeList:",{recipes})
 
   return (
@@ -18,7 +18,12 @@ export default function RecipeList({ recipes }) {
       }
       </div>
       <div className="recipe-list__add-recipe-btn-container">
-        <button className="btn btn--primary">Add Recipe</button>
+        <button 
+          className="btn btn--primary"
+          onClick={() => handleRecipeAdd() }
+        >
+          Add Recipe
+        </button>
       </div>
     </div>
   )

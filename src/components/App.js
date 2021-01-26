@@ -39,18 +39,6 @@ function App() {
     setRecipes(data)
   }
 
-  useEffect( () => {
-    loadRecipes()
-    return () => {}
-  }, [])
-
-  return (
-    <RecipeList 
-      recipes={ recipes }
-      handleRecipeAdd={handleRecipeAdd}  
-    />
-  )
-
   function handleRecipeAdd() {
     const newRecipe = {
       id: uuid(), 
@@ -67,6 +55,18 @@ function App() {
     }
     setRecipes([...recipes, newRecipe])
   }
+
+  useEffect( () => {
+    loadRecipes()
+    return () => {}
+  }, [])
+
+  return (
+    <RecipeList 
+      recipes={ recipes }
+      handleRecipeAdd={ handleRecipeAdd }  
+    />
+  )
 }
 
 
