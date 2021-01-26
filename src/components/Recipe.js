@@ -3,8 +3,8 @@ import IngredientList from './IngredientList'
 
 export default function Recipe( props ) {
   const {
-    name,
     id,
+    name,
     cookTime, 
     servings, 
     instructions,

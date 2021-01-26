@@ -57,7 +57,7 @@ function App() {
   }
 
   function handleRecipeDelete(id) {
-    const newRecipes = recipes.filter( (item) => item.id != id )
+    const newRecipes = recipes.filter( (recipe) => recipe.id != id )
     
     setRecipes(newRecipes)
 

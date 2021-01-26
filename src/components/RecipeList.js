@@ -1,8 +1,13 @@
 import React from 'react'
 import Recipe from './Recipe'
 
-export default function RecipeList({ recipes, handleRecipeAdd, handleRecipeDelete }) {
-  console.log("RecipeList:",{recipes})
+export default function RecipeList(props) {
+  // console.log("RecipeList:",{recipes})
+  let { 
+    recipes, 
+    handleRecipeAdd, 
+    handleRecipeDelete 
+  } = props
 
   return (
     <div className="recipe-list">
