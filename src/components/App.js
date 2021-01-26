@@ -45,26 +45,29 @@ function App() {
   }, [])
 
   return (
-    <RecipeList recipes={ recipes }/>
+    <RecipeList 
+      recipes={ recipes }
+      handleRecipeAdd={handleRecipeAdd}  
+    />
   )
-}
 
-function handleRecipeAdd() {
-  const newRecipe = {
-    id: uuid(), 
-    name: "new","servings": 1,
-    "cookTime": "1:00",
-    "instructions": "Instr.",
-    "ingredients": [
-      {
-        "id":uuid(),
-        "name": "Pork",
-        "amount": "1 Tbs"
-      }
-    ]
+  function handleRecipeAdd() {
+    const newRecipe = {
+      id: uuid(), 
+      name: "new","servings": 1,
+      "cookTime": "1:00",
+      "instructions": "Instr.",
+      "ingredients": [
+        {
+          "id":uuid(),
+          "name": "Pork",
+          "amount": "1 Tbs"
+        }
+      ]
+    }
+    setRecipes([...recipes, newRecipe])
   }
-  setRecipes([...recipes, newRecipe])
-
 }
+
 
 export default App;
