@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {v4 as uuid} from 'uuid';
 import RecipeList from './RecipeList';
+import RecipeEdit from './RecipeEdit';
 import '../css/app.css';
 
 // Netlify.com build/host
@@ -72,7 +73,7 @@ function App() {
   }
 
   // initial load from server if localstorage is empty 
-  // ORDER IS IMPORTANT
+  // ORDER OF USEEFFECT IS IMPORTANT
   useEffect( () => {
     const recipes = localStorage.getItem(LOCAL_STORAGE_KEY)
     if (recipes===null || JSON.parse(recipes).length===0) {
@@ -91,6 +92,7 @@ function App() {
   return (
     <RecipeContext.Provider value={ recipeContextValue }>
       <RecipeList recipes={ recipes } />
+      <RecipeEdit />
     </RecipeContext.Provider>
   )
 }
