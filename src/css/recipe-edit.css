@@ -8,3 +8,79 @@
   max-height: 100%;
   overflow-y: auto;
 }
+
+.recipe_edit__remove-button-container {
+  text-align: end;
+}
+
+.recipe_edit__remove-button {
+  padding: 0;
+  background:none;
+  outline: none;
+  border: none;
+  font-size: 1.5rem;
+}
+
+.recipe-edit__details-grid{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  row-gap: 10px;
+  column-gap: 10px;
+}
+
+.recipe-edit__input {
+  border-radius: 5px;
+  border: 1px solid black;
+  font-size: inherit;
+  padding: 3px 7px;
+  outline: none;
+  width:100%;
+}
+
+.recipe-edit__label {
+  font-weight: bold;
+}
+
+.recipe-edit__ingredient-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, auto);
+  margin-top: 20px;
+  margin-left: 40px;
+}
+
+
+.recipe-edit__add-ingredient-btn-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+textarea.recipe-edit__input {
+  resize: none;
+  height: 200px;
+}
+
+@media (max-width: 1000px) {
+  .recipe-edit__details-grid,
+  .recipe-edit__ingredient-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
