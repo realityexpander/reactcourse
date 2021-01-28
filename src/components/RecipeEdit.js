@@ -3,7 +3,7 @@ import RecipeIngredientEdit from './RecipeIngredientEdit.js'
 import { RecipeContext } from './App'
 
 export default function RecipeEdit({recipe}) {
-  const { handleRecipeChange } = useContext(RecipeContext)
+  const { handleRecipeChange, handleRecipeSelect } = useContext(RecipeContext)
 
   const {
     name,
@@ -29,7 +29,11 @@ export default function RecipeEdit({recipe}) {
   return (
     <div className="recipe-edit">
       <div className="recipe_edit__remove-button-container">
-        <button className="btn recipe_edit__remove-button">&times;</button>
+        <button 
+          onClick={() => handleRecipeSelect(undefined) }
+          className="btn recipe_edit__remove-button"
+          >&times;
+        </button>
       </div>
       <div className="recipe-edit__details-grid">
         <label 
