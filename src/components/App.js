@@ -37,11 +37,21 @@ const LOCAL_STORAGE_KEY = 'cookingWithReact.recipes'
 export const RecipeContext = React.createContext()
 
 function App() {
+  const [selectedRecipeId, setSelectedRecipeId] = useState()
   const [recipes, setRecipes] = useState(tempRecipesForLoadingIndicator)
+  const selectedRecipe = recipes.find(recipe => recipe.id === selectedRecipeId)
 
+  console.log(selectedRecipe)
+
+  // methods used in child components
   const recipeContextValue = {
     handleRecipeAdd,
-    handleRecipeDelete
+    handleRecipeDelete,
+    handleRecipeSelect
+  }
+
+  function handleRecipeSelect(id) {
+    setSelectedRecipeId(id)
   }
 
   const loadRecipes = async () => {
@@ -92,7 +102,7 @@ function App() {
   return (
     <RecipeContext.Provider value={ recipeContextValue }>
       <RecipeList recipes={ recipes } />
-      <RecipeEdit />
+      {selectedRecipe && <RecipeEdit recipe={ selectedRecipe } /> }
     </RecipeContext.Provider>
   )
 }
