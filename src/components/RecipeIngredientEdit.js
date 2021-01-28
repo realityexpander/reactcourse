@@ -3,7 +3,8 @@ import React, { useContext } from 'react';
 export default function RecipeIngredientEdit(props) {
   const {
     ingredient, 
-    handleIngredientChange
+    handleIngredientChange,
+    handleIngredientDelete
   } = props
 
   // this is used to access the ingredient.id and original list of ingredients
@@ -14,16 +15,21 @@ export default function RecipeIngredientEdit(props) {
   return (
     <>
       <input 
-        onInput={e => handleChange({ name: e.target.value })} // only have access to the value of the input here
+        onInput={e => handleChange({ name: e.target.value })} // only have access to the VALUE of the input here, not id
         value={ingredient.name}
-        className="recipe-edit__input" 
+        className="recipe-edit__input"
         type="text"/>
       <input 
         onInput={e => handleChange({ amount: e.target.value })}
         value={ingredient.amount}
         className="recipe-edit__input" 
         type="text"/>
-      <button className="btn btn--danger">&times;</button>
+      <button 
+        onClick={ () => handleIngredientDelete(ingredient.id) }
+        className="btn btn--danger"
+      >
+        &times;
+      </button>
     </>
   )
 }

@@ -33,6 +33,11 @@ export default function RecipeEdit({recipe}) {
     handleChange({ingredients: newIngredients})
   }
 
+  function handleIngredientDelete(id) {
+    const newIngredients = recipe.ingredients.filter( ingredient => ingredient.id !== id)
+    handleChange({ingredients: newIngredients})
+  }
+
   return (
     <div className="recipe-edit">
       <div className="recipe_edit__remove-button-container">
@@ -99,12 +104,13 @@ export default function RecipeEdit({recipe}) {
         <div>Name</div>
         <div>Amount</div>
         <div></div>
-        { ingredients.map( (ingredient) => 
+        { ingredients.map( (ingredient) => //{console.log(ingredient)} 
             <RecipeIngredientEdit 
               handleIngredientChange={handleIngredientChange}
+              handleIngredientDelete={handleIngredientDelete}
               key={ingredient.id} 
               ingredient={ingredient} />
-            ) 
+          ) 
         }
       </div>
       <div className="recipe-edit__add-ingredient-btn-container">
