@@ -12,7 +12,6 @@ export default function Recipe( props ) {
     instructions,
     ingredients
   } = props
-
   
   return (
     <div className="recipe">

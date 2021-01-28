@@ -41,23 +41,23 @@ function App() {
   const [recipes, setRecipes] = useState(tempRecipesForLoadingIndicator)
   const selectedRecipe = recipes.find(recipe => recipe.id === selectedRecipeId)
 
-  console.log(selectedRecipe)
-
   // methods used in child components
   const recipeContextValue = {
     handleRecipeAdd,
     handleRecipeDelete,
-    handleRecipeSelect
+    handleRecipeSelect,
+    handleRecipeChange
   }
 
   function handleRecipeSelect(id) {
     setSelectedRecipeId(id)
   }
-
-  const loadRecipes = async () => {
-    const res = await fetch("https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/realityexpander/reactcourse/master/src/sample.json")
-    const data = await res.json()
-    setRecipes(data)
+  
+  function handleRecipeChange(id, recipe) {
+    const newRecipes = [...recipes]
+    const index = newRecipes.findIndex(r => r.id === id)
+    newRecipes[index] = recipe
+    setRecipes(newRecipes)
   }
 
   function handleRecipeAdd() {
@@ -76,12 +76,19 @@ function App() {
     }
     setRecipes([...recipes, newRecipe])
   }
-
+  
   function handleRecipeDelete(id) {
     const newRecipes = recipes.filter( (recipe) => recipe.id !== id )
     setRecipes(newRecipes)
   }
 
+  // load recipes from API
+  const loadRecipes = async () => {
+    const res = await fetch("https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/realityexpander/reactcourse/master/src/sample.json")
+    const data = await res.json()
+    setRecipes(data)
+  }
+  
   // initial load from server if localstorage is empty 
   // ORDER OF USEEFFECT IS IMPORTANT
   useEffect( () => {

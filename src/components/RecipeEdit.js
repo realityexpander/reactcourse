@@ -1,15 +1,30 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import RecipeIngredientEdit from './RecipeIngredientEdit.js'
+import { RecipeContext } from './App'
 
 export default function RecipeEdit({recipe}) {
+  const { handleRecipeChange } = useContext(RecipeContext)
 
-const {
-  name,
-  cookTime,
-  instructions,
-  servings,
-  ingredients
-} = recipe
+  const {
+    name,
+    cookTime,
+    instructions,
+    servings,
+    ingredients
+  } = recipe
+
+  // handleChange({name: 'New Name'})
+  function handleChange(changes) {
+    handleRecipeChange(recipe.id, { ...recipe, ...changes})
+  }
+
+  function handleIngredientChange(ingredientId, ingredient) {
+    console.log("handleIngredientChange:", ingredientId, {ingredient})
+    const newIngredients = [...recipe.ingredients]
+    const index = newIngredients.findIndex(r => r.id === ingredientId)
+    newIngredients[index] = ingredient
+    handleChange({ ingredients: newIngredients })
+  }
 
   return (
     <div className="recipe-edit">
@@ -27,6 +42,7 @@ const {
           name="name" 
           id="name"
           value={name}
+          onInput={e => handleChange({ name: e.target.value })}
           className="recipe-edit__input" />
         <label 
           htmlFor="cookTime"
@@ -38,6 +54,7 @@ const {
           name="cookTime" 
           id="cookTime" 
           value={cookTime}
+          onInput={e => handleChange({ cookTime: e.target.value })}
           className="recipe-edit__input"/>
         <label 
           htmlFor="servings"
@@ -50,6 +67,7 @@ const {
           name="servings" 
           id="servings" 
           value={servings}
+          onInput={e => handleChange({ servings: parseInt(e.target.value) || 1 })}
           className="recipe-edit__input"/>
         <label 
           htmlFor="instructions"
@@ -61,6 +79,7 @@ const {
           name="instructions" 
           id="instructions"
           value={instructions} 
+          onInput={e => handleChange({ instructions: e.target.value })}
           className="recipe-edit__input"/>
       </div>
       <br/>
@@ -71,6 +90,7 @@ const {
         <div></div>
         { ingredients.map( (ingredient) => 
             <RecipeIngredientEdit 
+              handleIngredientChange={handleIngredientChange}
               key={ingredient.id} 
               ingredient={ingredient} />
             ) 
