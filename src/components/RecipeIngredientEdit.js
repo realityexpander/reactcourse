@@ -6,6 +6,7 @@ export default function RecipeIngredientEdit(props) {
     handleIngredientChange
   } = props
 
+  // this is used to access the ingredient.id and original list of ingredients
   function handleChange(changes) {
     handleIngredientChange(ingredient.id, {...ingredient, ...changes})
   }
@@ -13,7 +14,7 @@ export default function RecipeIngredientEdit(props) {
   return (
     <>
       <input 
-        onInput={e => handleChange({ name: e.target.value })}
+        onInput={e => handleChange({ name: e.target.value })} // only have access to the value of the input here
         value={ingredient.name}
         className="recipe-edit__input" 
         type="text"/>
