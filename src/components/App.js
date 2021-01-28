@@ -65,13 +65,13 @@ function App() {
       id: uuid(), 
       name: "",
       servings: 1,
-      cookTime: "1:00",
+      cookTime: "",
       instructions: "",
       ingredients: [
         {
           id:uuid(),
           name: "",
-          amount: "1 Tbs"
+          amount: ""
         }
       ]
     }
