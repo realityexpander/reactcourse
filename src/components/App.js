@@ -4,8 +4,11 @@ import RecipeList from './RecipeList';
 import RecipeEdit from './RecipeEdit';
 import '../css/app.css';
 
-// Netlify.com build/host
+// Netlify.com build
 // https://app.netlify.com/sites/pensive-benz-e9c005/overview
+
+// Deployed app
+// https://pensive-benz-e9c005.netlify.app/
 
 // Github repo
 // https://github.com/realityexpander/reactcourse
@@ -13,6 +16,8 @@ import '../css/app.css';
 // uuid
 // https://www.npmjs.com/package/uuid
 
+// From Learn React Today Course
+// https://courses.webdevsimplified.com/courses/learn-react-today/
 
 let tempRecipesForLoadingIndicator = [
   {
