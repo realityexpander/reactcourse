@@ -15,12 +15,12 @@ export default function RecipeIngredientEdit(props) {
   return (
     <>
       <input 
-        onInput={e => handleChange({ name: e.target.value })} // only have access to the VALUE of the input here, not id
+        onChange={e => handleChange({ name: e.target.value })} // only have access to the VALUE of the input here, not id
         value={ingredient.name}
         className="recipe-edit__input"
         type="text"/>
       <input 
-        onInput={e => handleChange({ amount: e.target.value })}
+        onChange={e => handleChange({ amount: e.target.value })}
         value={ingredient.amount}
         className="recipe-edit__input" 
         type="text"/>
