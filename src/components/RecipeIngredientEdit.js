@@ -7,6 +7,7 @@ export default function RecipeIngredientEdit(props) {
     handleIngredientDelete
   } = props
 
+
   // this is used to access the ingredient.id and original list of ingredients
   function handleChange(changes) {
     handleIngredientChange(ingredient.id, {...ingredient, ...changes})
