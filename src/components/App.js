@@ -19,6 +19,9 @@ import '../css/app.css';
 // From Learn React Today Course
 // https://courses.webdevsimplified.com/courses/learn-react-today/
 
+// to run:
+// npm start
+
 let tempRecipesForLoadingIndicator = [
   {
     id:1,
